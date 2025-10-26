@@ -1,0 +1,18 @@
+Today I want to share my journey building X Long Post, a tool that makes posting long-form content to Twitter effortless.
+
+The Challenge: Twitter's character limit can be frustrating when you have more to say. While threads are great, manually splitting your thoughts and posting them one by one is tedious.
+
+The Solution: I built a CLI tool that automatically splits your long text into perfectly sized tweets, preserving word boundaries and paragraph structure. It handles the threading automatically, so you can focus on your content.
+
+Key Features:
+- Smart text splitting that respects words and paragraphs
+- Automatic thread numbering
+- Preview before posting
+- Support for both standard and Twitter Blue long tweets
+- Simple CLI interface
+
+Tech Stack: Built with Node.js, TypeScript, and the twitter-api-v2 library. The architecture is clean and modular, making it easy to extend.
+
+This project taught me a lot about working with APIs, text processing, and building user-friendly CLI tools. Open source and available on GitHub!
+
+What tools do you use to manage your Twitter presence? Let me know in the replies!
