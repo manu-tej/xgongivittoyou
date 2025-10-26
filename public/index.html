@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+    <title>X Long Post - Twitter Thread Creator</title>
+    <meta name="description" content="Post long-form content to X/Twitter with automatic thread creation">
+
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#1DA1F2">
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- iOS Meta Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="X Post">
+    <link rel="apple-touch-icon" href="/icons/icon-192.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/icons/icon-152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-180.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="/icons/icon-167.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/icons/icon-192.png">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                    <h1>Long Post</h1>
+                </div>
+                <button id="settingsBtn" class="icon-btn" aria-label="Settings">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="3"/>
+                        <path d="M12 1v6m0 6v6m8.66-13.66l-4.24 4.24m-4.24 4.24l-4.24 4.24M23 12h-6m-6 0H1m17.66 8.66l-4.24-4.24m-4.24-4.24l-4.24-4.24"/>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Status Message -->
+            <div id="statusMessage" class="status-message hidden"></div>
+
+            <!-- Text Input -->
+            <div class="input-section">
+                <div class="input-header">
+                    <label for="postText">Compose your post</label>
+                    <span id="charCount" class="char-count">0</span>
+                </div>
+                <textarea
+                    id="postText"
+                    class="post-textarea"
+                    placeholder="What's on your mind? Write as much as you want..."
+                    rows="10"
+                ></textarea>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button id="previewBtn" class="btn btn-secondary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                        <circle cx="12" cy="12" r="3"/>
+                    </svg>
+                    Preview
+                </button>
+                <button id="postBtn" class="btn btn-primary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="22" y1="2" x2="11" y2="13"/>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                    </svg>
+                    Post Thread
+                </button>
+            </div>
+
+            <!-- Thread Preview -->
+            <div id="previewSection" class="preview-section hidden">
+                <div class="preview-header">
+                    <h2>Thread Preview</h2>
+                    <button id="closePreview" class="icon-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="18" y1="6" x2="6" y2="18"/>
+                            <line x1="6" y1="6" x2="18" y2="18"/>
+                        </svg>
+                    </button>
+                </div>
+                <div id="previewContent" class="preview-content"></div>
+            </div>
+        </main>
+
+        <!-- Loading Overlay -->
+        <div id="loadingOverlay" class="loading-overlay hidden">
+            <div class="spinner"></div>
+            <p>Posting your thread...</p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="512" height="512" fill="#1DA1F2" rx="128"/>
+
+  <!-- X Logo -->
+  <path d="M389.2 48h70.6L297 224.5 487 464H345L233.7 318.6 106.5 464H35.8l179.3-205.1L44.5 48h148.5l99.4 131.3L389.2 48zm-24.8 373.8h39.1L148.4 88.5h-41.9l257.8 333.3z" fill="white"/>
+
+  <!-- Thread indicator dots -->
+  <circle cx="128" cy="400" r="20" fill="white" opacity="0.8"/>
+  <circle cx="256" cy="400" r="20" fill="white" opacity="0.6"/>
+  <circle cx="384" cy="400" r="20" fill="white" opacity="0.4"/>
+</svg>

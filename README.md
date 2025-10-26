@@ -1,15 +1,20 @@
 # X Long Post - Twitter Thread Creator
 
-A Node.js CLI application that allows you to post long-form content to X/Twitter by automatically splitting your text into threaded tweets.
+A modern web application and CLI tool that allows you to post long-form content to X/Twitter by automatically splitting your text into threaded tweets.
 
 ## Features
 
+- **Modern PWA Web Interface** - Beautiful, mobile-optimized UI that works on all devices
+- **Installable on iPhone** - Add to home screen for native app experience
+- **CLI Interface** - Terminal-based tool for automation and scripting
 - Post long text that automatically splits into Twitter threads
 - Smart text splitting that preserves word boundaries and paragraphs
-- Preview threads before posting
+- Real-time preview before posting
 - Support for both standard (280 chars) and Twitter Blue long tweets (4000 chars)
 - Thread numbering (e.g., "1/5", "2/5")
-- CLI interface for easy use
+- Auto-save drafts locally
+- Dark mode support
+- Keyboard shortcuts (Cmd/Ctrl + Enter to post, Cmd/Ctrl + P to preview)
 
 ## Prerequisites
 
@@ -63,6 +68,49 @@ npm run build
 ```
 
 ## Usage
+
+You can use X Long Post in two ways: **Web Interface** (recommended for mobile) or **CLI** (for automation).
+
+### 🌐 Web Interface (PWA)
+
+#### Start the Web Server
+
+```bash
+npm run server
+```
+
+The server will start at `http://localhost:3000`
+
+#### Using on iPhone 17 Pro Max
+
+1. **Access the App**: Open Safari and navigate to your server URL (e.g., `http://your-ip:3000`)
+
+2. **Install as PWA**:
+   - Tap the Share button (square with arrow)
+   - Scroll down and tap "Add to Home Screen"
+   - Name it "X Post" (or your preference)
+   - Tap "Add"
+
+3. **Launch**: The app icon will appear on your home screen. Tap to open - it runs like a native app!
+
+#### Web Features
+
+- **Compose**: Write your long post in the text area
+- **Preview**: Click "Preview" to see how your text will be split into tweets
+- **Post**: Click "Post Thread" to publish to Twitter
+- **Auto-save**: Your draft is automatically saved locally
+- **Responsive**: Optimized for iPhone 17 Pro Max and all screen sizes
+
+#### PWA Benefits
+
+- ✅ Offline-capable (service worker caching)
+- ✅ Native app feel with no browser chrome
+- ✅ Fast loading and smooth animations
+- ✅ Respects iOS safe areas (notch, home indicator)
+- ✅ Prevents pull-to-refresh interference
+- ✅ Dark mode support
+
+### 💻 CLI Interface
 
 ### Verify Credentials
 
@@ -146,10 +194,18 @@ Edit `.env` to customize:
 ```
 .
 ├── src/
+│   ├── server.ts           # Express web server
 │   ├── cli.ts              # CLI interface
 │   ├── config.ts           # Configuration loader
 │   ├── twitter-client.ts   # Twitter API client
 │   └── thread-manager.ts   # Text splitting logic
+├── public/                 # PWA frontend
+│   ├── index.html          # Main HTML
+│   ├── styles.css          # Modern CSS with iOS optimizations
+│   ├── app.js              # Frontend JavaScript
+│   ├── manifest.json       # PWA manifest
+│   ├── sw.js               # Service worker
+│   └── icons/              # PWA icons (various sizes)
 ├── dist/                   # Compiled JavaScript (generated)
 ├── .env                    # Your credentials (not in git)
 ├── .env.example            # Template for credentials
@@ -159,14 +215,26 @@ Edit `.env` to customize:
 
 ## Development
 
-Run in development mode:
+Run CLI in development mode:
 ```bash
 npm run dev
+```
+
+Run web server in development mode:
+```bash
+npm run server:dev
 ```
 
 Build the project:
 ```bash
 npm run build
+```
+
+Generate PWA icons (optional):
+```bash
+python3 create-icons.py
+# Or use the shell script:
+./generate-icons.sh
 ```
 
 ## Troubleshooting
@@ -197,7 +265,30 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 Manu Tej Sharma
 
+## Tech Stack
+
+### Backend
+- TypeScript for type safety
+- Express.js web server
+- twitter-api-v2 for X API integration
+- Commander.js for CLI
+
+### Frontend
+- Vanilla JavaScript (no framework bloat)
+- Modern CSS with iOS optimizations
+- Progressive Web App (PWA) with service worker
+- Responsive design optimized for iPhone 17 Pro Max
+
 ## Acknowledgments
 
 - Built with [twitter-api-v2](https://github.com/PLhery/node-twitter-api-v2)
 - CLI powered by [Commander.js](https://github.com/tj/commander.js)
+- Web server powered by [Express.js](https://expressjs.com/)
+
+## Screenshots
+
+### iPhone 17 Pro Max
+
+![Compose View](screenshots/compose.png) _(Coming soon)_
+![Preview View](screenshots/preview.png) _(Coming soon)_
+![Posted Thread](screenshots/posted.png) _(Coming soon)_
